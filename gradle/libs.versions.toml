@@ -1,0 +1,85 @@
+[versions]
+activityCompose = "1.11.0"
+androidxTest = "1.7.0"
+androidxTestUiAutomator = "2.3.0"
+appcompat = "1.7.1"
+composeBom = "2025.09.01"
+datastore = "1.1.7"
+desugarJdkLibs = "2.1.5"
+# used in settings.gradle.kts for git dependencies
+dicioNumbers = "4140dfd299236270fe92b3690e220943bf801c4f"
+dicioSentencesCompiler = "6d0f1ca0a732c28329b3fd0f7c8f351e00933ad6"
+gradle = "8.13.0"
+dagger = "2.57.2"
+hilt = "1.2.0"
+includegitPlugin = "0.3.1"
+jacksonDataformatYaml = "2.20.0"
+jacksonModuleKotlin = "2.20.0"
+java = "21"
+jgit = "7.3.0.202506031305-r"
+kotest = "6.0.3"
+kotlin = "2.2.20"
+kotlinpoet = "2.2.0"
+kotlinSerialization = "1.9.0"
+ksp = "2.2.20-2.0.3"
+navigation = "2.9.5"
+protobufPlugin = "0.9.5"
+protoc = "4.32.1"
+permissionFlow = "2.1.0"
+minSdk = "21"
+targetSdk = "36"
+compileSdk = "36"
+
+[libraries]
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activityCompose" }
+android-tools-build-gradle = { module = "com.android.tools.build:gradle", version.ref = "gradle" }
+appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "composeBom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-graphics = { module = "androidx.compose.ui:ui-graphics" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-material-icons-extended = { module = "androidx.compose.material:material-icons-extended" }
+datastore = { module = "androidx.datastore:datastore", version.ref = "datastore" }
+debug-compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+debug-compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest" }
+desugar_jdk_libs = { module = "com.android.tools:desugar_jdk_libs", version.ref = "desugarJdkLibs" }
+dicio-numbers = { module = "git.included.build:dicio-numbers" }
+dicio-sentences-compiler = { module = "git.included.build:dicio-sentences-compiler" }
+dicio-sentences-compiler-plugin = { module = "org.stypox.dicio.sentencesCompilerPlugin:sentences-compiler-plugin" }
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "dagger" }
+hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "dagger" }
+hilt-android-testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "dagger" }
+hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hilt" }
+jackson-dataformat-yaml = { module = "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml", version.ref = "jacksonDataformatYaml" }
+jackson-module-kotlin = { module = "com.fasterxml.jackson.module:jackson-module-kotlin", version.ref = "jacksonModuleKotlin" }
+jgit = { module = "org.eclipse.jgit:org.eclipse.jgit", version.ref = "jgit" }
+kotest-property = { module = "io.kotest:kotest-property", version.ref = "kotest" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-serialization = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinSerialization" }
+kotlinpoet = { module = "com.squareup:kotlinpoet", version.ref = "kotlinpoet" }
+navigation = { module = "androidx.navigation:navigation-compose", version.ref = "navigation" }
+protobuf-java-lite = { module = "com.google.protobuf:protobuf-javalite", version.ref = "protoc" }
+protobuf-kotlin-lite = { module = "com.google.protobuf:protobuf-kotlin-lite", version.ref = "protoc" }
+protobuf-protoc = { module = "com.google.protobuf:protoc", version.ref = "protoc" }
+test-core = { module = "androidx.test:core", version.ref = "androidxTest" }
+test-rules = { module = "androidx.test:rules", version.ref = "androidxTest" }
+test-runner = { module = "androidx.test:runner", version.ref = "androidxTest" }
+test-ui-automator = { module = "androidx.test.uiautomator:uiautomator", version.ref = "androidxTestUiAutomator" }
+permission-flow-android = { module = "dev.shreyaspatil.permission-flow:permission-flow-android", version.ref = "permissionFlow" }
+permission-flow-compose = { module = "dev.shreyaspatil.permission-flow:permission-flow-compose", version.ref = "permissionFlow" }
+
+[plugins]
+com-android-application = { id = "com.android.application", version.ref = "gradle" }
+com-android-library = { id = "com.android.library", version.ref = "gradle" }
+org-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+org-jetbrains-kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+org-jetbrains-kotlin-plugin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+org-jetbrains-kotlin-plugin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+com-google-devtools-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+com-google-dagger-hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "dagger" }
+com-google-protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
+me-champeau-includegit = { id = "me.champeau.includegit", version.ref = "includegitPlugin" }
+dicio-sentences-compiler-plugin = { id = "org.stypox.dicio.sentencesCompilerPlugin", version = "1.0" }

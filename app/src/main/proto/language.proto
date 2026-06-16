@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+option java_package = "org.stypox.dicio.settings.datastore";
+option java_multiple_files = true;
+
+// Keep this list ordered alphabetically, even if that means enum values are
+// not sequential.
+// WARNING: If you change existing numeric values, users will experience a sudden
+// unintended language change. Never renumber or remove existing entries.
+enum Language {
+  LANGUAGE_SYSTEM = 0;  // follow the Android system locale
+  LANGUAGE_EN     = 3;  // English
+  LANGUAGE_HE     = 16; // Hebrew / עברית
+}
