@@ -6,7 +6,6 @@ import org.stypox.dicio.util.StringUtils.contactStringDistance
 import org.stypox.dicio.util.StringUtils.customStringDistance
 import org.stypox.dicio.util.StringUtils.joinNonBlank
 import org.stypox.dicio.util.StringUtils.levenshteinDistance
-import org.stypox.dicio.util.StringUtils.removePunctuation
 
 class StringUtilsTest : StringSpec({
     "joinNonBlank with default parameters" {
@@ -23,11 +22,6 @@ class StringUtilsTest : StringSpec({
         joinNonBlank("abc", separator = "-") shouldBe "abc"
         joinNonBlank("", "", separator = "-") shouldBe ""
         joinNonBlank("a", "", "c", null, "", "k", " ", "\t", "d", separator = "-") shouldBe "a-c-k-d"
-    }
-
-    "remove punctuation" {
-        removePunctuation("hello, how are you? ") shouldBe "hello how are you "
-        removePunctuation("!\"#1$%&'()*+2,-./:;<=34>?@[5]^_`{|}~") shouldBe "12345"
     }
 
     "levenshtein distance" {
