@@ -31,13 +31,20 @@ class ExternalPopupInputDevice(
 ) : SttInputDevice {
 
     private var locale: Locale
-    // unfortunately some apps like "speech recognition and synthesis from google" require
-    // the country to also be specified in the locale, hence this hack (hopefully other apps handle
-    // it well)
+
+    // Java's Locale list represents Hebrew with the legacy ISO 639-1 code "iw" even though
+    // the modern BCP 47 code is "he". When our locale is Locale("he") with no country, we
+    // search for both "he" and "iw" so we find "iw-IL" / "he-IL" in the available locales.
+    // toLanguageTag() on that locale returns the modern "he-IL" tag, which WHISPERIME
+    // (and Google STT) accept correctly.
     private val localeWithCountry: Locale
         get() = if (locale.country.isEmpty()) {
+            val legacyLang = if (locale.language == "he") "iw" else locale.language
             Locale.getAvailableLocales()
-                .firstOrNull { it.language == locale.language && it.country.isNotEmpty() }
+                .firstOrNull {
+                    (it.language == locale.language || it.language == legacyLang)
+                        && it.country.isNotEmpty()
+                }
                 ?: locale
         } else {
             locale
@@ -50,8 +57,6 @@ class ExternalPopupInputDevice(
     private val scope = CoroutineScope(Dispatchers.Default)
 
     init {
-        // Run blocking, because the locale is always available right away since LocaleManager also
-        // initializes in a blocking way.
         val (firstLocale, nextLocaleFlow) = localeManager.locale
             .distinctUntilChangedBlockingFirst()
         locale = firstLocale
@@ -66,7 +71,6 @@ class ExternalPopupInputDevice(
         }
 
         scope.launch {
-            // perform initialization again every time the locale changes
             nextLocaleFlow.collect { newLocale ->
                 locale = newLocale
                 _state.emit(stateFromResolveActivity())
@@ -97,11 +101,6 @@ class ExternalPopupInputDevice(
     }
 
     private fun getIntent(): Intent {
-        // Unfortunately the user could choose Dicio itself (starting SttPopupActivity), but there
-        // is no way to avoid this unless we use an Intent.createChooser() with
-        // `EXTRA_EXCLUDE_COMPONENTS`. A chooser, however, wouldn't allow the user to press
-        // "Always"/"Just once", and also wouldn't make it possible to check for availability like
-        // with .resolveIntent() (since the intent always resolves to the choooser).
         return Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
             putExtra(
                 RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -145,39 +144,31 @@ class ExternalPopupInputDevice(
     }
 
     private fun onActivityResult(result: ActivityResult) {
-        // all activity requesters are used just once since the activity might change
         val results = result.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS)
         val confidences = result.data?.getFloatArrayExtra(RecognizerIntent.EXTRA_CONFIDENCE_SCORES)
         val eventListener = _state.value as? ExternalPopupState.WaitingForResult ?: return
 
         if (result.resultCode == RESULT_OK && !results.isNullOrEmpty()) {
-            // this is not atomic but there is no alternative in Kotlin to compare, update and get
-            // the previous value
             _state.compareAndSet(
                 ExternalPopupState.WaitingForResult { },
                 ExternalPopupState.Available
             )
-
             if (results.size == confidences?.size) {
                 eventListener.listener(InputEvent.Final(results.zip(confidences.map { it })))
             } else {
                 eventListener.listener(InputEvent.Final(results.map { Pair(it, 1.0f) }))
             }
-
         } else if (result.resultCode == RESULT_CANCELED) {
             _state.compareAndSet(
                 ExternalPopupState.WaitingForResult { },
                 ExternalPopupState.Available
             )
-
             eventListener.listener(InputEvent.None)
-
         } else {
             _state.compareAndSet(
                 ExternalPopupState.WaitingForResult { },
                 ExternalPopupState.ErrorActivityResult(result.resultCode)
             )
-
             eventListener.listener(InputEvent.Error(ResultCodeException(result.resultCode)))
         }
     }

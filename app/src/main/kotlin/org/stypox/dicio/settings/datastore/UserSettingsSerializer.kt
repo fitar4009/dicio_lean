@@ -9,6 +9,7 @@ import java.io.OutputStream
 object UserSettingsSerializer : Serializer<UserSettings> {
     override val defaultValue: UserSettings = UserSettings.getDefaultInstance()
         .toBuilder()
+        .setLanguage(Language.LANGUAGE_HE)   // Hebrew-first fork: default to Hebrew
         .setAutoFinishSttPopup(true)
         .build()
 
