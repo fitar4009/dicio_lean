@@ -25,34 +25,11 @@ import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/**
- * Resolves the active locale and the matching sentences-language key, taking into account:
- *  1. The user's explicit language preference (from DataStore).
- *  2. The Android system locale list.
- *  3. Which languages actually have compiled sentence data ([Sentences.languages]).
- *
- * **Hebrew / "iw" normalisation:**
- * Android historically uses the legacy BCP 47 code "iw" for Hebrew, while the IETF standard
- * and our sentence directory use "he". The system locale list is normalised on construction
- * so that "iw" locales become "he" before being matched against [Sentences.languages].
- */
 @Singleton
 class LocaleManager @Inject constructor(
     @param:ApplicationContext private val appContext: Context,
     dataStore: DataStore<UserSettings>,
 ) {
-    // Capture the system locale list at construction time (before any setLocale() call in
-    // BaseActivity would overwrite the configuration with the user-selected locale).
-    // Normalize legacy Hebrew code "iw" → "he" so it matches our sentences directory.
-    private val systemLocaleList: LocaleListCompat = run {
-        val raw = ConfigurationCompat.getLocales(appContext.resources.configuration)
-        val normalized = (0 until raw.size()).map { i ->
-            val locale = raw.get(i)!!
-            if (locale.language == "iw") Locale("he", locale.country) else locale
-        }
-        LocaleListCompat.create(*normalized.toTypedArray())
-    }
-
     private val scope = CoroutineScope(Dispatchers.Default)
 
     private val _locale: MutableStateFlow<Locale>
@@ -67,8 +44,8 @@ class LocaleManager @Inject constructor(
             .distinctUntilChangedBlockingFirst()
 
         val initial = resolveLocale(firstLanguage)
-        _locale           = MutableStateFlow(initial.availableLocale)
-        locale            = _locale
+        _locale            = MutableStateFlow(initial.availableLocale)
+        locale             = _locale
         _sentencesLanguage = MutableStateFlow(initial.supportedLocaleString)
         sentencesLanguage  = _sentencesLanguage
 
@@ -88,28 +65,42 @@ class LocaleManager @Inject constructor(
                 Sentences.languages,
             )
         } catch (e: LocaleUtils.UnsupportedLocaleException) {
-            Log.w(TAG, "Locale not supported, defaulting to English", e)
+            Log.w(TAG, "Locale not supported, falling back to Hebrew", e)
+            // Hebrew is the primary language of this fork; always fall back to it.
             LocaleUtils.LocaleResolutionResult(
-                availableLocale      = Locale.ENGLISH,
-                supportedLocaleString = "en",
+                availableLocale       = Locale("he"),
+                supportedLocaleString = "he",
             )
         }
     }
 
     /**
-     * Maps a [Language] preference to the locale list that should be consulted for matching.
+     * Maps a [Language] preference to the locale list used for sentence matching.
      *
-     * For [Language.LANGUAGE_SYSTEM] (and unrecognised values) the cached [systemLocaleList]
-     * is returned. For explicit language selections the list contains exactly one locale,
-     * derived from the enum name (e.g. LANGUAGE_HE → Locale("he")).
+     * **Hebrew-first policy:**
+     * [Language.LANGUAGE_SYSTEM] has numeric value 0, which is also proto3's default for
+     * unset enum fields. This means every device that has never explicitly chosen a language
+     * (including existing installs migrated from older versions) has [Language.LANGUAGE_SYSTEM]
+     * stored. Because this is a Hebrew-first fork and the car OS may run in English, we treat
+     * [Language.LANGUAGE_SYSTEM] as Hebrew rather than following the device OS language.
+     * Users who want English can select it explicitly in Settings → Language.
+     *
+     * **Hebrew "iw" normalisation:**
+     * Android / Java stores Hebrew internally as the legacy BCP 47 code "iw" while our
+     * sentences directory uses the modern code "he". [LocaleUtils.resolveSupportedLocaleOrThrow]
+     * matches on [Locale.getLanguage], so we pass [Locale] with language "he" directly;
+     * the sentences compiler also outputs "he" as the language key.
      */
     private fun localesForSetting(language: Language): LocaleListCompat {
         return when (language) {
+            // LANGUAGE_SYSTEM (= 0) is the proto3 default for "never explicitly set".
+            // Treat it as Hebrew for this fork so commands work on any OS language.
             Language.LANGUAGE_SYSTEM,
-            Language.UNRECOGNIZED -> systemLocaleList
+            Language.UNRECOGNIZED -> LocaleListCompat.create(Locale("he"))
+
             else -> {
-                // Enum names follow the pattern LANGUAGE or LANGUAGE_COUNTRY;
-                // strip the prefix and parse. e.g. "LANGUAGE_HE" → Locale("he").
+                // Derive locale from enum name: LANGUAGE_HE → "HE" → Locale("he"),
+                //                               LANGUAGE_EN → "EN" → Locale("en"), etc.
                 val tag = language.name.removePrefix("LANGUAGE_")
                 LocaleListCompat.create(LocaleUtils.parseLanguageCountry(tag))
             }
@@ -124,10 +115,6 @@ class LocaleManager @Inject constructor(
     }
 }
 
-/**
- * Hilt entry point allowing [LocaleManager] to be retrieved via
- * [dagger.hilt.android.EntryPointAccessors.fromApplication] before an activity's `onCreate()`.
- */
 @EntryPoint
 @InstallIn(SingletonComponent::class)
 interface LocaleManagerModule {
