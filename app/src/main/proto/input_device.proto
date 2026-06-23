@@ -9,4 +9,5 @@ enum InputDevice {
     // value 2 (INPUT_DEVICE_VOSK) intentionally reserved — removed when Vosk was stripped
     reserved 2;
     INPUT_DEVICE_EXTERNAL_POPUP = 3;
+    INPUT_DEVICE_ONNX_WHISPER = 4;
 }

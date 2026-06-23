@@ -95,10 +95,6 @@ fun dynamicColors() = BooleanSetting(
     descriptionOn  = stringResource(R.string.pref_dynamic_colors_summary),
 )
 
-/**
- * Input device choices.
- * Future: add an ONNX Whisper entry here once the implementation is ready.
- */
 @Composable
 fun inputDevice() = ListSetting(
     title       = stringResource(R.string.pref_input_method),
@@ -110,6 +106,12 @@ fun inputDevice() = ListSetting(
             name        = stringResource(R.string.pref_input_method_external_popup),
             description = stringResource(R.string.pref_input_method_external_popup_summary),
             icon        = Icons.Default.PictureInPictureAlt,
+        ),
+        ListSetting.Value(
+            value       = InputDevice.INPUT_DEVICE_ONNX_WHISPER,
+            name        = stringResource(R.string.pref_input_method_onnx_whisper),
+            description = stringResource(R.string.pref_input_method_onnx_whisper_summary),
+            icon        = Icons.Default.Mic,
         ),
         ListSetting.Value(
             value = InputDevice.INPUT_DEVICE_NOTHING,

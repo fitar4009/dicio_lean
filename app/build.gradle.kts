@@ -67,6 +67,10 @@ android {
         buildConfig = true
         compose = true
     }
+
+    // sherpa-onnx .onnx model files are read from filesDir at runtime (not bundled in assets),
+    // so no noCompress entry is needed. If you ever decide to bundle them in assets instead,
+    // add: androidResources { noCompress += listOf("onnx") }
 }
 
 tasks.withType<Test>().configureEach {
@@ -109,6 +113,24 @@ dependencies {
     // Dicio own libraries
     implementation(libs.dicio.numbers)
     implementation(project(":skill"))
+
+    // ── sherpa-onnx ──────────────────────────────────────────────────────────
+    // The AAR bundles both the Kotlin API classes and the native JNI .so files
+    // for arm64-v8a, armeabi-v7a, x86, and x86_64.
+    //
+    // Setup (one-time, only needed when ONNX Whisper input is selected):
+    //   1. Download the latest sherpa-onnx Android AAR from GitHub releases:
+    //      https://github.com/k2-fsa/sherpa-onnx/releases
+    //      File to download: sherpa-onnx-<version>.aar
+    //      (built from the repo via JitPack, or see ONNX_WHISPER_SETUP.md for
+    //       the alternative .so-files approach)
+    //   2. Rename it to sherpa-onnx.aar and place it in app/libs/.
+    //   3. Sync Gradle. The dependency below picks it up automatically.
+    //
+    // Tested with: sherpa-onnx 1.13.2
+    // If the libs/ directory is absent or empty, compilation still succeeds
+    // but OnnxWhisperInputDevice will fail to find the classes at runtime.
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar"))))
 
     // Android
     implementation(libs.appcompat)
