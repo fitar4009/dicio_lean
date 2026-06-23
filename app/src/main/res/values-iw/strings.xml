@@ -1,6 +1,6 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
-    Hebrew (׳¢׳‘׳¨׳™׳×) string resources.
+    Hebrew (עברית) string resources.
     Android uses the legacy locale tag "iw" for Hebrew; this directory is therefore named
     values-iw/ even though the ISO 639-1 code is "he".
 
@@ -10,147 +10,133 @@
 -->
 <resources>
 
-    <!-- ג”€ג”€ App ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
+    <!-- ── App ────────────────────────────────────────────────────────────── -->
     <string name="app_name">Dicio</string>
 
-    <!-- ג”€ג”€ Home screen ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="here_is_what_i_can_do">׳”׳ ׳” ׳׳” ׳©׳׳ ׳™ ׳™׳›׳•׳׳” ׳׳¢׳©׳•׳×!</string>
-    <string name="all_skills_disabled_title">׳›׳ ׳”׳›׳™׳©׳•׳¨׳™׳ ׳׳•׳©׳‘׳×׳™׳</string>
-    <string name="all_skills_disabled_description">׳”׳₪׳¢׳ ׳›׳™׳©׳•׳¨׳™׳ ׳‘׳”׳’׳“׳¨׳•׳×, ׳׳—׳¨׳× Dicio ׳׳ ׳™׳•׳›׳ ׳׳¢׳©׳•׳× ׳›׳׳•׳</string>
-    <string name="text_input_hint">׳©׳׳ ׳׳•׳×׳™ ׳›׳ ׳“׳‘׳¨\u2026</string>
+    <!-- ── Home screen ───────────────────────────────────────────────────── -->
+    <string name="here_is_what_i_can_do">הנה מה שאני יכולה לעשות!</string>
+    <string name="all_skills_disabled_title">כל הכישורים מושבתים</string>
+    <string name="all_skills_disabled_description">הפעל כישורים בהגדרות, אחרת Dicio לא יוכל לעשות כלום</string>
+    <string name="text_input_hint">שאל אותי כל דבר\u2026</string>
 
-    <!-- ג”€ג”€ General UI ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="back">׳—׳–׳¨׳”</string>
-    <string name="settings">׳”׳’׳“׳¨׳•׳×</string>
-    <string name="about">׳׳•׳“׳•׳×</string>
-    <string name="expand">׳”׳¨׳—׳‘</string>
-    <string name="reduce">׳›׳•׳•׳¥</string>
-    <string name="disable">׳›׳‘׳”</string>
-    <string name="retry">׳ ׳¡׳” ׳©׳•׳‘</string>
-    <string name="stop">׳¢׳¦׳•׳¨</string>
-    <string name="done">׳¡׳™׳•׳</string>
-    <string name="grant_permissions">׳”׳¢׳ ׳§ ׳”׳¨׳©׳׳•׳×</string>
-    <string name="no_app_to_open_intent">׳׳™׳ ׳׳₪׳׳™׳§׳¦׳™׳” ׳©׳™׳›׳•׳׳” ׳׳˜׳₪׳ ׳‘׳‘׳§׳©׳” ׳–׳•</string>
-    <string name="failed_to_copy">׳׳ ׳ ׳™׳×׳ ׳׳”׳¢׳×׳™׳§ ׳׳׳•׳—</string>
+    <!-- ── General UI ─────────────────────────────────────────────────────── -->
+    <string name="back">חזרה</string>
+    <string name="settings">הגדרות</string>
+    <string name="about">אודות</string>
+    <string name="expand">הרחב</string>
+    <string name="reduce">כווץ</string>
+    <string name="disable">כבה</string>
+    <string name="retry">נסה שוב</string>
+    <string name="stop">עצור</string>
+    <string name="done">סיום</string>
+    <string name="grant_permissions">הענק הרשאות</string>
+    <string name="no_app_to_open_intent">אין אפליקציה שיכולה לטפל בבקשה זו</string>
+    <string name="failed_to_copy">לא ניתן להעתיק ללוח</string>
 
-    <!-- ג”€ג”€ Skill: Open app ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="skill_name_open">׳₪׳×׳™׳—׳× ׳׳₪׳׳™׳§׳¦׳™׳•׳×</string>
-    <string name="skill_sentence_example_open">׳₪׳×׳— WhatsApp</string>
-    <string name="skill_open_could_not_understand">׳׳ ׳”׳‘׳ ׳×׳™ ׳׳× ׳©׳ ׳”׳׳₪׳׳™׳§׳¦׳™׳”</string>
-    <string name="skill_open_unknown_app">׳׳₪׳׳™׳§׳¦׳™׳” ׳׳ ׳™׳“׳•׳¢׳”: %1$s</string>
-    <string name="skill_open_opening">׳₪׳•׳×׳— ׳׳× %1$s\u2026</string>
+    <!-- ── Skill: Open app ────────────────────────────────────────────────── -->
+    <string name="skill_name_open">פתיחת אפליקציות</string>
+    <string name="skill_sentence_example_open">פתח WhatsApp</string>
+    <string name="skill_open_could_not_understand">לא הבנתי את שם האפליקציה</string>
+    <string name="skill_open_unknown_app">אפליקציה לא ידועה: %1$s</string>
+    <string name="skill_open_opening">פותח את %1$s\u2026</string>
 
-    <!-- ג”€ג”€ Skill: Telephone ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="skill_name_telephone">׳—׳™׳•׳’ ׳˜׳׳₪׳•׳ ׳™</string>
-    <string name="skill_sentence_example_telephone">׳”׳×׳§׳©׳¨ ׳׳׳׳</string>
-    <string name="skill_telephone_unknown_contact">׳׳ ׳׳¦׳׳×׳™ ׳׳× ׳׳™׳© ׳”׳§׳©׳¨. ׳ ׳¡׳” ׳©׳•׳‘.</string>
-    <string name="skill_telephone_found_contacts">׳׳¦׳׳×׳™ %1$d ׳׳ ׳©׳™ ׳§׳©׳¨. ׳׳׳™ ׳׳”׳×׳§׳©׳¨?</string>
+    <!-- ── Skill: Telephone ───────────────────────────────────────────────── -->
+    <string name="skill_name_telephone">חיוג טלפוני</string>
+    <string name="skill_sentence_example_telephone">התקשר לאמא</string>
+    <string name="skill_telephone_unknown_contact">לא מצאתי את איש הקשר. נסה שוב.</string>
+    <string name="skill_telephone_found_contacts">מצאתי %1$d אנשי קשר. למי להתקשר?</string>
     <!-- %1$s = contact name OR dialled number when calling directly -->
-    <string name="skill_telephone_confirm_call">׳”׳׳ ׳׳”׳×׳§׳©׳¨ ׳%1$s?</string>
-    <string name="skill_telephone_calling">׳׳×׳§׳©׳¨ ׳%1$s\u2026</string>
-    <string name="skill_telephone_not_calling">׳‘׳¡׳“׳¨, ׳׳ ׳׳×׳§׳©׳¨ ׳׳׳£ ׳׳—׳“</string>
+    <string name="skill_telephone_confirm_call">האם להתקשר ל%1$s?</string>
+    <string name="skill_telephone_calling">מתקשר ל%1$s\u2026</string>
+    <string name="skill_telephone_not_calling">בסדר, לא מתקשר לאף אחד</string>
 
-    <!-- ג”€ג”€ Skill: Text fallback ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="skill_fallback_name_text">׳˜׳§׳¡׳˜</string>
+    <!-- ── Skill: Text fallback ───────────────────────────────────────────── -->
+    <string name="skill_fallback_name_text">טקסט</string>
 
-    <!-- ג”€ג”€ Evaluator ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="eval_no_match">׳׳ ׳”׳‘׳ ׳×׳™</string>
-    <string name="eval_no_match_repeat">׳”׳׳ ׳×׳•׳›׳ ׳׳—׳–׳•׳¨ ׳¢׳ ׳›׳?</string>
-    <string name="eval_fatal_error">׳׳ ׳™׳›׳•׳׳×׳™ ׳׳‘׳¦׳¢ ׳׳× ׳”׳‘׳§׳©׳”</string>
-    <string name="eval_missing_permissions">׳”׳›׳™׳©׳•׳¨ \"%1$s\" ׳“׳•׳¨׳© ׳”׳¨׳©׳׳•׳×: %2$s</string>
+    <!-- ── Evaluator ──────────────────────────────────────────────────────── -->
+    <string name="eval_no_match">לא הבנתי</string>
+    <string name="eval_no_match_repeat">האם תוכל לחזור על כך?</string>
+    <string name="eval_fatal_error">לא יכולתי לבצע את הבקשה</string>
+    <string name="eval_missing_permissions">הכישור \"%1$s\" דורש הרשאות: %2$s</string>
 
-    <!-- ג”€ג”€ Errors ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="error_sorry">׳׳¦׳˜׳¢׳¨׳×, ׳׳™׳¨׳¢׳” ׳©׳’׳™׳׳”</string>
-    <string name="error_report">׳“׳•׳•׳— ׳¢׳ ׳©׳’׳™׳׳”</string>
-    <string name="error_title">׳“׳•׳— ׳©׳’׳™׳׳”</string>
+    <!-- ── Errors ─────────────────────────────────────────────────────────── -->
+    <string name="error_sorry">מצטערת, אירעה שגיאה</string>
+    <string name="error_report">דווח על שגיאה</string>
+    <string name="error_title">דוח שגיאה</string>
 
-    <!-- ג”€ג”€ STT states ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="stt_popup">׳–׳™׳”׳•׳™ ׳“׳™׳‘׳•׳¨</string>
-    <string name="stt_say_something">׳׳׳•׳¨ ׳׳©׳”׳•\u2026</string>
-    <string name="stt_did_not_understand">׳׳ ׳”׳¦׳׳—׳×׳™ ׳׳”׳‘׳™׳, ׳ ׳¡׳” ׳©׳•׳‘</string>
-    <string name="stt_service_label">׳–׳™׳”׳•׳™ ׳“׳™׳‘׳•׳¨ ׳©׳ Dicio</string>
-    <string name="grant_microphone_permission">׳”׳¢׳ ׳§ ׳”׳¨׳©׳׳× ׳׳™׳§׳¨׳•׳₪׳•׳</string>
-    <string name="listening">׳׳׳–׳™׳\u2026</string>
-    <string name="waiting">׳׳׳×׳™׳\u2026</string>
-    <string name="start_listening">׳”׳×׳—׳ ׳”׳׳–׳ ׳”</string>
-    <string name="stt_not_available">׳–׳™׳”׳•׳™ ׳“׳™׳‘׳•׳¨ ׳׳™׳ ׳• ׳–׳׳™׳</string>
-    <string name="download">׳”׳•׳¨׳“</string>
-    <string name="downloaded">׳”׳•׳¨׳“ ׳‘׳”׳¦׳׳—׳”</string>
-    <string name="loaded">׳ ׳˜׳¢׳</string>
-    <string name="unzipping">׳׳—׳׳¥ ׳§׳‘׳¦׳™׳\u2026</string>
-    <string name="permission_denied">׳”׳”׳¨׳©׳׳” ׳ ׳“׳—׳×׳”</string>
-    <string name="action_text_input">׳§׳׳˜ ׳˜׳§׳¡׳˜</string>
-    <string name="action_voice_input">׳§׳׳˜ ׳§׳•׳׳™</string>
+    <!-- ── STT states ─────────────────────────────────────────────────────── -->
+    <string name="stt_popup">זיהוי דיבור</string>
+    <string name="stt_say_something">אמור משהו\u2026</string>
+    <string name="stt_did_not_understand">לא הצלחתי להבין, נסה שוב</string>
+    <string name="stt_service_label">זיהוי דיבור של Dicio</string>
+    <string name="grant_microphone_permission">הענק הרשאת מיקרופון</string>
+    <string name="listening">מאזין\u2026</string>
+    <string name="waiting">ממתין\u2026</string>
+    <string name="start_listening">התחל האזנה</string>
+    <string name="stt_not_available">זיהוי דיבור אינו זמין</string>
+    <string name="download">הורד</string>
+    <string name="downloaded">הורד בהצלחה</string>
+    <string name="loaded">נטען</string>
+    <string name="unzipping">מחלץ קבצים\u2026</string>
+    <string name="permission_denied">ההרשאה נדחתה</string>
+    <string name="action_text_input">קלט טקסט</string>
+    <string name="action_voice_input">קלט קולי</string>
 
-    <!-- ג”€ג”€ Permissions ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="perm_read_contacts">׳§׳¨׳ ׳׳ ׳©׳™ ׳§׳©׳¨</string>
-    <string name="perm_call_phone">׳‘׳¦׳¢ ׳©׳™׳—׳•׳× ׳˜׳׳₪׳•׳</string>
+    <!-- ── Permissions ────────────────────────────────────────────────────── -->
+    <string name="perm_read_contacts">קרא אנשי קשר</string>
+    <string name="perm_call_phone">בצע שיחות טלפון</string>
 
-    <!-- ג”€ג”€ Settings ג€” General ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="pref_general">׳›׳׳׳™</string>
-    <string name="pref_language">׳©׳₪׳”</string>
-    <string name="pref_language_summary">׳‘׳׳™׳–׳• ׳©׳₪׳” ׳™׳©׳×׳׳© Dicio?</string>
-    <string name="pref_language_system">׳©׳₪׳× ׳׳¢׳¨׳›׳×</string>
-    <string name="pref_theme">׳ ׳•׳©׳</string>
-    <string name="pref_theme_summary">׳‘׳—׳¨ ׳¢׳¨׳›׳× ׳¦׳‘׳¢׳™׳</string>
-    <string name="pref_theme_system">׳ ׳•׳©׳ ׳׳¢׳¨׳›׳×</string>
-    <string name="pref_theme_system_dark_black">׳ ׳•׳©׳ ׳׳¢׳¨׳›׳× (׳©׳—׳•׳¨ ׳׳ ׳•׳©׳ ׳›׳”׳”)</string>
-    <string name="pref_theme_light">׳‘׳”׳™׳¨</string>
-    <string name="pref_theme_dark">׳›׳”׳”</string>
-    <string name="pref_theme_black">׳©׳—׳•׳¨ (AMOLED)</string>
-    <string name="pref_dynamic_colors_title">׳¦׳‘׳¢׳™׳ ׳“׳™׳ ׳׳™׳™׳</string>
-    <string name="pref_dynamic_colors_summary">׳”׳©׳×׳׳© ׳‘׳¦׳‘׳¢׳™ Material You ׳©׳ ׳”׳׳¢׳¨׳›׳×</string>
-    <string name="pref_skills_title">׳›׳™׳©׳•׳¨׳™׳</string>
-    <string name="pref_skills_summary">׳”׳₪׳¢׳/׳›׳‘׳” ׳›׳™׳©׳•׳¨׳™׳ ׳•׳›׳•׳•׳ ׳׳× ׳”׳”׳×׳ ׳”׳’׳•׳× ׳©׳׳”׳</string>
+    <!-- ── Settings — General ─────────────────────────────────────────────── -->
+    <string name="pref_general">כללי</string>
+    <string name="pref_language">שפה</string>
+    <string name="pref_language_summary">באיזו שפה ישתמש Dicio?</string>
+    <string name="pref_language_system">שפת מערכת</string>
+    <string name="pref_theme">נושא</string>
+    <string name="pref_theme_summary">בחר ערכת צבעים</string>
+    <string name="pref_theme_system">נושא מערכת</string>
+    <string name="pref_theme_system_dark_black">נושא מערכת (שחור לנושא כהה)</string>
+    <string name="pref_theme_light">בהיר</string>
+    <string name="pref_theme_dark">כהה</string>
+    <string name="pref_theme_black">שחור (AMOLED)</string>
+    <string name="pref_dynamic_colors_title">צבעים דינמיים</string>
+    <string name="pref_dynamic_colors_summary">השתמש בצבעי Material You של המערכת</string>
+    <string name="pref_skills_title">כישורים</string>
+    <string name="pref_skills_summary">הפעל/כבה כישורים וכוון את ההתנהגות שלהם</string>
 
-    <!-- ג”€ג”€ Settings ג€” I/O ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="pref_io">׳§׳׳˜ ׳•׳₪׳׳˜</string>
-    <string name="pref_input_method">׳©׳™׳˜׳× ׳§׳׳˜</string>
-    <string name="pref_input_method_summary">׳‘׳—׳¨ ׳©׳™׳¨׳•׳× ׳׳“׳™׳‘׳•׳¨ ׳¢׳ Dicio</string>
-    <string name="pref_input_method_text">׳×׳™׳‘׳× ׳˜׳§׳¡׳˜ ׳‘׳׳‘׳“</string>
-    <string name="pref_input_method_external_popup">׳—׳׳•׳ ׳“׳™׳‘׳•׳¨ ׳—׳™׳¦׳•׳ ׳™</string>
-    <string name="pref_input_method_external_popup_summary">׳₪׳•׳×׳— ׳׳׳©׳§ ׳©׳ ׳׳₪׳׳™׳§׳¦׳™׳” ׳׳—׳¨׳× ׳׳–׳™׳”׳•׳™ ׳“׳™׳‘׳•׳¨</string>
-    <string name="pref_speech_output_method">׳©׳™׳˜׳× ׳₪׳׳˜ ׳§׳•׳׳™</string>
-    <string name="pref_speech_output_method_summary">׳‘׳—׳¨ ׳›׳™׳¦׳“ Dicio ׳™׳“׳‘׳¨ ׳׳׳™׳</string>
-    <string name="pref_speech_output_method_android">׳׳ ׳•׳¢ TTS ׳©׳ Android</string>
-    <string name="pref_speech_output_method_toast">׳”׳•׳“׳¢׳× Toast</string>
+    <!-- ── Settings — I/O ─────────────────────────────────────────────────── -->
+    <string name="pref_io">קלט ופלט</string>
+    <string name="pref_input_method">שיטת קלט</string>
+    <string name="pref_input_method_summary">בחר שירות לדיבור עם Dicio</string>
+    <string name="pref_input_method_text">תיבת טקסט בלבד</string>
+    <string name="pref_input_method_external_popup">חלון דיבור חיצוני</string>
+    <string name="pref_input_method_external_popup_summary">פותח ממשק של אפליקציה אחרת לזיהוי דיבור</string>
+    <string name="pref_input_method_onnx_whisper">Whisper מובנה (ללא אינטרנט)</string>
+    <string name="pref_input_method_onnx_whisper_summary">משתמש במודל Whisper-tiny של sherpa-onnx המאוחסן בתיקיית הקבצים של האפליקציה. לא נדרש חיבור לאינטרנט.</string>
+    <string name="pref_speech_output_method">שיטת פלט קולי</string>
+    <string name="pref_speech_output_method_summary">בחר כיצד Dicio ידבר אליך</string>
+    <string name="pref_speech_output_method_android">מנוע TTS של Android</string>
+    <string name="pref_speech_output_method_toast">הודעת Toast</string>
     <string name="pref_speech_output_method_snackbar">Snackbar</string>
-    <string name="pref_speech_output_method_nothing">׳׳׳</string>
-    <string name="pref_stt_auto_finish_title">׳©׳׳— ׳×׳•׳¦׳׳” ׳׳•׳˜׳•׳׳˜׳™׳×</string>
-    <string name="pref_stt_auto_finish_summary_on">׳©׳׳— ׳×׳•׳¦׳׳” ׳׳•׳˜׳•׳׳˜׳™׳× ׳›׳©׳”׳׳–׳ ׳” ׳׳¡׳×׳™׳™׳׳×</string>
-    <string name="pref_stt_auto_finish_summary_off">׳”׳׳×׳ ׳׳׳™׳©׳•׳¨ ׳™׳“׳ ׳™ ׳׳₪׳ ׳™ ׳©׳׳™׳—׳× ׳”׳×׳•׳¦׳׳”</string>
-    <string name="pref_stt_play_sound_title">׳ ׳’׳ ׳¦׳׳™׳ ׳‘׳¢׳× ׳”׳׳–׳ ׳”</string>
-    <string name="pref_stt_play_sound_summary">׳‘׳—׳¨ ׳¢׳¨׳•׳¥ ׳׳¦׳׳™׳ ׳×׳—׳™׳׳× ׳”׳׳–׳ ׳”</string>
-    <string name="pref_stt_play_sound_notification">׳¢׳¨׳•׳¥ ׳”׳×׳¨׳׳•׳×</string>
-    <string name="pref_stt_play_sound_alarm">׳¢׳¨׳•׳¥ ׳׳–׳¢׳§׳”</string>
-    <string name="pref_stt_play_sound_media">׳¢׳¨׳•׳¥ ׳׳“׳™׳”</string>
-    <string name="pref_stt_play_sound_none">׳׳׳ ׳¦׳׳™׳</string>
+    <string name="pref_speech_output_method_nothing">ללא</string>
+    <string name="pref_stt_auto_finish_title">שלח תוצאה אוטומטית</string>
+    <string name="pref_stt_auto_finish_summary_on">שלח תוצאה אוטומטית כשהאזנה מסתיימת</string>
+    <string name="pref_stt_auto_finish_summary_off">המתן לאישור ידני לפני שליחת התוצאה</string>
+    <string name="pref_stt_play_sound_title">נגן צליל בעת האזנה</string>
+    <string name="pref_stt_play_sound_summary">בחר ערוץ לצליל תחילת האזנה</string>
+    <string name="pref_stt_play_sound_notification">ערוץ התראות</string>
+    <string name="pref_stt_play_sound_alarm">ערוץ אזעקה</string>
+    <string name="pref_stt_play_sound_media">ערוץ מדיה</string>
+    <string name="pref_stt_play_sound_none">ללא צליל</string>
 
-    <!-- ג”€ג”€ Settings ג€” Skills ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="pref_skill_not_available">׳›׳™׳©׳•׳¨ ׳–׳” ׳׳™׳ ׳• ׳–׳׳™׳ ׳׳©׳₪׳” ׳”׳ ׳•׳›׳—׳™׳×. ׳×׳¨׳•׳׳•׳× ׳׳×׳§׳‘׳׳•׳× ׳‘׳‘׳¨׳›׳”!</string>
-    <string name="pref_skill_missing_permissions">׳“׳•׳¨׳© ׳”׳¨׳©׳׳•׳×: %1$s</string>
-    <string name="pref_skill_grant_permissions">׳”׳¢׳ ׳§</string>
-    <string name="settings_description_with_value">%1$s ג€” %2$s</string>
+    <!-- ── Settings — Skills ──────────────────────────────────────────────── -->
+    <string name="pref_skill_not_available">כישור זה אינו זמין לשפה הנוכחית. תרומות מתקבלות בברכה!</string>
+    <string name="pref_skill_missing_permissions">דורש הרשאות: %1$s</string>
+    <string name="pref_skill_grant_permissions">הענק</string>
+    <string name="settings_description_with_value">%1$s — %2$s</string>
 
-    <!-- ג”€ג”€ About ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <string name="about_description">׳¢׳•׳–׳¨ ׳§׳•׳׳™ ׳׳§׳•׳׳™, ׳₪׳¨׳˜׳™ ׳•׳₪׳×׳•׳— ׳׳§׳•׳¨</string>
-    <string name="about_privacy_title">׳₪׳¨׳˜׳™׳•׳×</string>
-    <string name="about_privacy_description">׳›׳ ׳¢׳™׳‘׳•׳“ ׳”׳“׳™׳‘׳•׳¨ ׳•׳‘׳™׳¦׳•׳¢ ׳”׳›׳™׳©׳•׳¨׳™׳ ׳ ׳¢׳©׳” ׳׳—׳׳•׳˜׳™׳ ׳‘׳׳›׳©׳™׳¨. ׳׳™׳ ׳©׳™׳׳•׳© ׳‘׳¨׳©׳×.</string>
-
-    <!-- ג”€ג”€ ׳©׳™׳˜׳× ׳§׳׳˜ Whisper ׳׳•׳‘׳ ׳” ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <!-- ׳©׳ ׳”׳׳•׳¦׳’ ׳‘׳¨׳©׳™׳׳× ׳©׳™׳˜׳•׳× ׳”׳§׳׳˜ ׳‘׳”׳’׳“׳¨׳•׳× -->
-    <string name="pref_input_method_onnx_whisper">Whisper ׳׳•׳‘׳ ׳” (׳׳׳ ׳׳™׳ ׳˜׳¨׳ ׳˜)</string>
-    <!-- ׳×׳™׳׳•׳¨ ׳§׳¦׳¨ ׳”׳׳•׳¦׳’ ׳׳×׳—׳× ׳׳©׳ ׳‘׳¨׳©׳™׳׳× ׳©׳™׳˜׳•׳× ׳”׳§׳׳˜ -->
-    <string name="pref_input_method_onnx_whisper_summary">׳׳©׳×׳׳© ׳‘׳׳•׳“׳ Whisper-tiny ׳©׳ sherpa-onnx ׳”׳׳׳•׳—׳¡׳ ׳‘׳×׳™׳§׳™׳™׳× ׳”׳§׳‘׳¦׳™׳ ׳©׳ ׳”׳׳₪׳׳™׳§׳¦׳™׳”. ׳׳ ׳ ׳“׳¨׳© ׳—׳™׳‘׳•׳¨ ׳׳׳™׳ ׳˜׳¨׳ ׳˜.</string>
-    <!-- ׳©׳’׳™׳׳” ׳”׳׳•׳¦׳’׳× ׳›׳׳©׳¨ ׳×׳™׳§׳™׳™׳× ׳”׳׳•׳“׳ ׳׳• ׳”׳§׳‘׳¦׳™׳ ׳”׳“׳¨׳•׳©׳™׳ ׳—׳¡׳¨׳™׳ -->
-    <string name="onnx_whisper_model_not_found">׳׳•׳“׳ Whisper ׳׳ ׳ ׳׳¦׳. ׳™׳© ׳׳”׳ ׳™׳— ׳׳× ׳§׳‘׳¦׳™ ׳”׳׳•׳“׳ ׳‘׳×׳™׳§׳™׳™׳× ׳”׳§׳‘׳¦׳™׳ ׳©׳ ׳”׳׳₪׳׳™׳§׳¦׳™׳”.</string>
-
-    <!-- ג”€ג”€ ׳©׳™׳˜׳× ׳§׳׳˜ Whisper ׳׳•׳‘׳ ׳” ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ג”€ -->
-    <!-- ׳©׳ ׳”׳׳•׳¦׳’ ׳‘׳¨׳©׳™׳׳× ׳©׳™׳˜׳•׳× ׳”׳§׳׳˜ ׳‘׳”׳’׳“׳¨׳•׳× -->
-    <string name="pref_input_method_onnx_whisper">Whisper ׳׳•׳‘׳ ׳” (׳׳׳ ׳׳™׳ ׳˜׳¨׳ ׳˜)</string>
-    <!-- ׳×׳™׳׳•׳¨ ׳§׳¦׳¨ ׳”׳׳•׳¦׳’ ׳׳×׳—׳× ׳׳©׳ ׳‘׳¨׳©׳™׳׳× ׳©׳™׳˜׳•׳× ׳”׳§׳׳˜ -->
-    <string name="pref_input_method_onnx_whisper_summary">׳׳©׳×׳׳© ׳‘׳׳•׳“׳ Whisper-tiny ׳©׳ sherpa-onnx ׳”׳׳׳•׳—׳¡׳ ׳‘׳×׳™׳§׳™׳™׳× ׳”׳§׳‘׳¦׳™׳ ׳©׳ ׳”׳׳₪׳׳™׳§׳¦׳™׳”. ׳׳ ׳ ׳“׳¨׳© ׳—׳™׳‘׳•׳¨ ׳׳׳™׳ ׳˜׳¨׳ ׳˜.</string>
-    <!-- ׳©׳’׳™׳׳” ׳”׳׳•׳¦׳’׳× ׳›׳׳©׳¨ ׳×׳™׳§׳™׳™׳× ׳”׳׳•׳“׳ ׳׳• ׳”׳§׳‘׳¦׳™׳ ׳”׳“׳¨׳•׳©׳™׳ ׳—׳¡׳¨׳™׳ -->
-    <string name="onnx_whisper_model_not_found">׳׳•׳“׳ Whisper ׳׳ ׳ ׳׳¦׳. ׳™׳© ׳׳”׳ ׳™׳— ׳׳× ׳§׳‘׳¦׳™ ׳”׳׳•׳“׳ ׳‘׳×׳™׳§׳™׳™׳× ׳”׳§׳‘׳¦׳™׳ ׳©׳ ׳”׳׳₪׳׳™׳§׳¦׳™׳”.</string>
+    <!-- ── About ──────────────────────────────────────────────────────────── -->
+    <string name="about_description">עוזר קולי מקומי, פרטי ופתוח מקור</string>
+    <string name="about_privacy_title">פרטיות</string>
+    <string name="about_privacy_description">כל עיבוד הדיבור וביצוע הכישורים נעשה לחלוטין במכשיר. אין שימוש ברשת.</string>
 
 </resources>
