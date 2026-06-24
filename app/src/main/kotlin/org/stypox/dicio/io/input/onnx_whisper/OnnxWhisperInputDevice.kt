@@ -96,10 +96,6 @@ class OnnxWhisperInputDevice(
     // ── Init ──────────────────────────────────────────────────────────────────
 
     init {
-        // Force Android to create the files/ directory on disk so the user can
-        // push model files via ADB even before selecting this input method.
-        context.filesDir.mkdirs()
-
         scope.launch {
             localeManager.locale.collect { newLocale ->
                 val lang = normalizeLanguage(newLocale.language)
@@ -176,7 +172,7 @@ class OnnxWhisperInputDevice(
         File(modelDir(), DECODER_FILENAME).exists() &&
         File(modelDir(), TOKENS_FILENAME).exists()
 
-    private fun modelDir(): File = File(context.filesDir, MODEL_DIR_NAME)
+    private fun modelDir(): File = File(context.getExternalFilesDir(null), MODEL_DIR_NAME)
 
     /** Android stores Hebrew as legacy BCP-47 code "iw"; Whisper expects "he". */
     private fun normalizeLanguage(language: String): String =
