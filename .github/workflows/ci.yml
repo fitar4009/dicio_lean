@@ -13,6 +13,8 @@
 #     dicioNumbers + dicioSentencesCompiler commit hashes in libs.versions.toml.
 #     Changing either commit hash automatically invalidates the cache and
 #     triggers a fresh clone.
+#   • sherpa-onnx .so files → keyed by SHERPA_ONNX_VERSION below.
+#     Updating the version constant automatically re-downloads the library.
 # ─────────────────────────────────────────────────────────────────────────────
 
 name: CI
@@ -22,10 +24,13 @@ on:
     branches: ['**']
   pull_request:
 
-# Cancel in-progress runs for the same branch/PR when a new push arrives.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
+
+env:
+  # Bump this to pull a newer sherpa-onnx release.
+  SHERPA_ONNX_VERSION: "1.13.3"
 
 jobs:
   build:
@@ -37,10 +42,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          # Full history is required so that gitBranch() in app/build.gradle.kts
-          # (which calls Git.open(rootDir).repository.branch via JGit) can read
-          # the branch name. Without this the branch would come back as a detached
-          # HEAD SHA and the debug APK's applicationId suffix would be 'HEAD'.
           fetch-depth: 0
 
       # ── 2. Toolchain ───────────────────────────────────────────────────────
@@ -49,15 +50,9 @@ jobs:
         with:
           java-version: '21'
           distribution: 'temurin'
-          # Caches ~/.gradle/caches and ~/.gradle/wrapper automatically.
           cache: gradle
 
       # ── 3. Custom cache: includegit checkouts ─────────────────────────────
-      # The me.champeau.includegit plugin clones dicio-numbers and
-      # dicio-sentences-compiler into checkouts/ at the project root.
-      # We cache this directory keyed by the two commit SHAs declared in
-      # libs.versions.toml so the cache is invalidated exactly when either
-      # upstream library is bumped.
       - name: Cache includegit checkouts
         uses: actions/cache@v4
         with:
@@ -66,14 +61,49 @@ jobs:
           restore-keys: |
             includegit-
 
-      # ── 4. Permissions ─────────────────────────────────────────────────────
+      # ── 4. sherpa-onnx native libraries ───────────────────────────────────
+      # The .so files are not committed to the repo. They are downloaded from
+      # GitHub releases and cached keyed by version. The Kotlin API source
+      # files are vendored directly under app/src/main/kotlin/com/k2fsa/.
+      - name: Cache sherpa-onnx native libs
+        id: cache-sherpa
+        uses: actions/cache@v4
+        with:
+          path: app/src/main/jniLibs
+          key: sherpa-onnx-jni-${{ env.SHERPA_ONNX_VERSION }}
+
+      - name: Download & extract sherpa-onnx native libs
+        if: steps.cache-sherpa.outputs.cache-hit != 'true'
+        run: |
+          VERSION="${SHERPA_ONNX_VERSION}"
+          URL="https://github.com/k2-fsa/sherpa-onnx/releases/download/v${VERSION}/sherpa-onnx-v${VERSION}-android.tar.bz2"
+          echo "Downloading $URL"
+          curl -L --retry 3 -o sherpa-onnx-android.tar.bz2 "$URL"
+
+          echo "Extracting .so files..."
+          tar -xjf sherpa-onnx-android.tar.bz2
+
+          JNILIBS="app/src/main/jniLibs"
+          for ABI in arm64-v8a armeabi-v7a x86_64 x86; do
+            SRC="sherpa-onnx-v${VERSION}-android/${ABI}"
+            if [ -d "$SRC" ]; then
+              mkdir -p "$JNILIBS/$ABI"
+              cp "$SRC"/libsherpa-onnx-jni.so "$JNILIBS/$ABI/"
+              cp "$SRC"/libonnxruntime.so      "$JNILIBS/$ABI/"
+              echo "  Copied $ABI"
+            fi
+          done
+
+          rm -rf sherpa-onnx-android.tar.bz2 "sherpa-onnx-v${VERSION}-android"
+          echo "jniLibs contents:"
+          find "$JNILIBS" -name "*.so" | sort
+
+      # ── 5. Permissions ─────────────────────────────────────────────────────
       - name: Make gradlew executable
         run: chmod +x ./gradlew
 
-      # ── 5. Tests ───────────────────────────────────────────────────────────
+      # ── 6. Tests ───────────────────────────────────────────────────────────
       - name: Run unit tests
-        # --continue keeps running even if one module's tests fail, so we get
-        # a full report from both :app and :skill in a single run.
         run: ./gradlew :app:test :skill:test --continue
 
       - name: Upload test reports
@@ -87,9 +117,7 @@ jobs:
           if-no-files-found: ignore
           retention-days: 14
 
-      # ── 6. Debug APK ───────────────────────────────────────────────────────
-      # No signing config is needed: Android Gradle Plugin automatically signs
-      # debug builds with a default debug keystore generated on the fly.
+      # ── 7. Debug APK ───────────────────────────────────────────────────────
       - name: Assemble debug APK
         run: ./gradlew assembleDebug
 
