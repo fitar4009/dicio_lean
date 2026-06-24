@@ -96,6 +96,10 @@ class OnnxWhisperInputDevice(
     // ── Init ──────────────────────────────────────────────────────────────────
 
     init {
+        // Force Android to create the files/ directory on disk so the user can
+        // push model files via ADB even before selecting this input method.
+        context.filesDir.mkdirs()
+
         scope.launch {
             localeManager.locale.collect { newLocale ->
                 val lang = normalizeLanguage(newLocale.language)
