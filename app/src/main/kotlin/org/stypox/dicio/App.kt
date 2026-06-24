@@ -6,6 +6,7 @@ import android.os.Build
 import androidx.core.app.NotificationChannelCompat
 import androidx.core.app.NotificationManagerCompat
 import dagger.hilt.android.HiltAndroidApp
+import org.stypox.dicio.io.input.onnx_whisper.OnnxWhisperInputDevice
 import org.stypox.dicio.util.checkPermissions
 
 // IMPORTANT NOTE: beware of this nasty bug related to allowBackup=true
@@ -14,6 +15,10 @@ import org.stypox.dicio.util.checkPermissions
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
+        // Ensure the Whisper model subdirectory exists from the very first launch
+        // so the user can push model files via ADB without needing to first select
+        // the input method in settings. filesDir itself is also created by this call.
+        java.io.File(filesDir, OnnxWhisperInputDevice.MODEL_DIR_NAME).mkdirs()
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
             checkPermissions(this, Manifest.permission.POST_NOTIFICATIONS)
         ) {
